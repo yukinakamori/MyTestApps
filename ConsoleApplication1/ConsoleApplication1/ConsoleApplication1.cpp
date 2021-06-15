@@ -30,13 +30,17 @@ int main()
     */
 
     // お客様から SAMPLE.txt を基に変数指定.
-    WCHAR lpUsername[] = L"admlocal";
+//    WCHAR lpUsername[] = L"admlocal";
     WCHAR lpDomain[] = {0};
-    WCHAR lpPassword[] = L"password";
+//    WCHAR lpPassword[] = L"password";
+
+    WCHAR lpUsername[] = L"test";
+    WCHAR lpPassword[] = L"PssLab!";
+
 
     DWORD dwLogonFlags = LOGON_WITH_PROFILE;
     LPCWSTR lpApplicationName = NULL;
-    WCHAR lpCommandLine[] = L"C:\temp\test.bat";
+    WCHAR lpCommandLine[] = L"cmd.exe";
     DWORD dwCreationFlags = CREATE_DEFAULT_ERROR_MODE | CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP;
     LPVOID lpEnvironment = 0;
     LPCWSTR lpCurrentDirectory = NULL;
@@ -45,11 +49,14 @@ int main()
 
     lpStartupInfo.cb = sizeof(STARTUPINFO);
     lpStartupInfo.lpTitle = NULL;
-    lpStartupInfo.dwX = 250;
-    lpStartupInfo.dwY = 270;
-    lpStartupInfo.dwXSize = 750;
-    lpStartupInfo.dwYSize = 150;
-    lpStartupInfo.dwFlags = 6;
+    lpStartupInfo.dwX = 0;
+    lpStartupInfo.dwY = 0;
+//  lpStartupInfo.dwX = 250;
+//  lpStartupInfo.dwY = 270;
+    lpStartupInfo.dwXSize = 1000;
+    lpStartupInfo.dwYSize = 1000;
+//    lpStartupInfo.dwFlags = STARTF_USEPOSITION | STARTF_USESIZE;
+    lpStartupInfo.dwFlags = STARTF_USESHOWWINDOW | STARTF_USEPOSITION | STARTF_USESIZE;
 
     if (CreateProcessWithLogonW(
        lpUsername,
