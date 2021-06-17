@@ -53,10 +53,10 @@ int main()
     lpStartupInfo.dwY = 0;
 //  lpStartupInfo.dwX = 250;
 //  lpStartupInfo.dwY = 270;
-    lpStartupInfo.dwXSize = 1000;
-    lpStartupInfo.dwYSize = 1000;
+    lpStartupInfo.dwXSize = 500;
+    lpStartupInfo.dwYSize = 500;
 //    lpStartupInfo.dwFlags = STARTF_USEPOSITION | STARTF_USESIZE;
-    lpStartupInfo.dwFlags = STARTF_USESHOWWINDOW | STARTF_USEPOSITION | STARTF_USESIZE;
+    lpStartupInfo.dwFlags = STARTF_USEPOSITION | STARTF_USESIZE;
 
     if (CreateProcessWithLogonW(
        lpUsername,
@@ -76,6 +76,9 @@ int main()
     else {
         std::cout << "in else:: faild CreateProcessWithLogonW\n";
     }
+
+    SMALL_RECT rect = { lpStartupInfo.dwX, lpStartupInfo.dwY, lpStartupInfo.dwXSize - 1, lpStartupInfo.dwYSize - 1 };
+    SetConsoleWindowInfo(lpProcessInformation.hThread, true, &rect);
 
     CloseHandle(lpProcessInformation.hProcess);
     CloseHandle(lpProcessInformation.hThread);
