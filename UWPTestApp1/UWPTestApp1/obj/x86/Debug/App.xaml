@@ -1,0 +1,9 @@
+﻿<Application
+    x:Class="UWPTestApp1.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:local="using:UWPTestApp1">
+
+</Application>
+
